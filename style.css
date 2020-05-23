@@ -26,6 +26,7 @@ header {
 
     color: var(--green);
     font-size: 6rem;
+    user-select: none;
 }
 
 main {
@@ -36,17 +37,98 @@ main {
     align-items: center;
 }
 
-div {
-    font-size: 4rem;
-    color: var(--lightgray);
-    background-color: var(--green);
-    padding: 2rem;
-    border-radius: 2rem;
-    transition: 200ms ease-out;
-    user-select: none;
-    cursor: pointer;
+.container {
+    /* background-color: #2b2b2b; */
+    height: 75vh;
+    width: 75vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-div:hover {
-    transform: scale(1.1);
+
+
+.button {
+    background-color: var(--green);
+    flex-basis: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--lightgray);
+    font-size: 3rem;
+
+    user-select: none;
+    cursor: pointer;
+
+    transition: transform 400ms ease, margin 1s ease;
+
+    z-index: 1;
+}
+
+.middle {
+    margin: 5rem;
+}
+
+.toggleMargin {
+    margin: 0;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.content {
+    background-color: var(--green);
+    position: absolute;
+    height: 80vh;
+    width: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: clip-path 1s;
+}
+
+.leftContent {
+    clip-path: circle(10vh at 17.5%);
+}
+
+.rightContent {
+    clip-path: circle(10vh at 82.5%);
+}
+
+.middleContent {
+    clip-path: circle(10vh at 50%);
+}
+
+.extended {
+    clip-path: circle(30vh at 50%);
+    z-index: 2;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+
+.backButton {
+    color: var(--lightgray);
+    font-size: 3rem;
+    user-select: none;
+    cursor: pointer;
+
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
