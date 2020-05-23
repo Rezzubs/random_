@@ -7,7 +7,8 @@ const rightContent = document.querySelector('.rightContent')
 const middleContent = document.querySelector('.middleContent')
 const content = document.querySelectorAll(".content");
 
-const backButton = document.querySelectorAll(".backButton")
+const backButton = document.querySelector(".backButton")
+const cover = document.querySelector('.cover');
 
 
 let playAnimation = 1
@@ -17,8 +18,6 @@ buttons.forEach(button => {
         
         // checks if the buttons have already been pressed
         for (i = 0; i < buttons.length; i++) { 
-            
-            console.log(i + ' ' + buttons[i]);
             if (buttons[i].classList.contains('toggleMargin') || buttons[i].classList.contains('extended')) {
                 playAnimation = 0
                 break
@@ -49,19 +48,35 @@ buttons.forEach(button => {
                 leftContent.classList.add('invisible')
             }
         }
+
+        backButton.classList.add('setPointer')
     })
 })
 
-backButton.forEach(button => {
-    button.addEventListener('click', () => {
-        console.log(content);
-    
+content.forEach(cnt => {
+    cnt.addEventListener('click', () => {
+        cover.classList.toggle('coverUncovered')
+    })
+})
+
+
+backButton.addEventListener('click', () => {
+    if (cover.classList.contains('coverUncovered')) {
+        cover.classList.remove('coverUncovered')
+        setTimeout(() => {
+            coinflip.classList.remove('toggleMargin');
+            content.forEach(cnt => {
+                cnt.classList.remove('extended');
+            })
+        }, 600)
+    } else {
         coinflip.classList.remove('toggleMargin');
-        
         content.forEach(cnt => {
             console.log(cnt);
             
-            cnt.classList.remove('extended')
+            cnt.classList.remove('extended');
         })
-    })
+    }
+
+    backButton.classList.remove('setPointer')
 })

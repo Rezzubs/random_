@@ -118,17 +118,28 @@ main {
 
 
 .backButton {
-    color: var(--lightgray);
-    font-size: 3rem;
-    user-select: none;
-    cursor: pointer;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
 
-    width: 8rem;
-    height: 8rem;
+
+}
+
+.cover {
+    height: 50vh;
+    width: 50vh;
     border-radius: 50%;
+    background-color: var(--bggray);
+    clip-path: circle(0 at 50%);
+    transition: clip-path 600ms ease-in;
+    position: absolute;
+    z-index: 5;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.coverUncovered {
+    clip-path: circle(25vh at 50%);
+}
 
+.setPointer {
+    cursor: pointer
 }
